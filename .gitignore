@@ -1,14 +1,25 @@
-# virtual env
+# Python venv
 .venv/
 venv/
+env/
 
-# python cache
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# OS
+# OS / editor
 .DS_Store
 Thumbs.db
+.vscode/
 
-# logs
+# Environment variables
+.env
+.env.*
+
+# Logs
 *.log
+
+# Jupyter
+.ipynb_checkpoints/
