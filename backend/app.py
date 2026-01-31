@@ -47,8 +47,15 @@ app = FastAPI(title="Diamond Price Predictor API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # dev
-    allow_credentials=True,
+    allow_origins=[
+        "https://diamond-price-web.vercel.app",
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+        "http://127.0.0.1:8000",
+        "http://localhost:8000",
+    ],  
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
