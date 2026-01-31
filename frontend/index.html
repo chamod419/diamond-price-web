@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diamond Price Predictor - Professional Edition</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  
+  <div class="container">
+    <header class="header">
+      <div class="logo">💎</div>
+      <h1>Diamond Price Predictor</h1>
+      <p class="subtitle">Professional AI-powered diamond valuation with real-time pricing analysis</p>
+    </header>
+
+    <div class="main-card">
+      <div class="api-indicator">
+        <span class="status-dot"></span>
+        <span>API Connected:</span>
+        <strong id="apiBaseText">http://127.0.0.1:8000</strong>
+      </div>
+
+      <form id="predictForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Carat Weight</label>
+            <input id="carat" type="number" step="0.01" min="0.50" max="5.00" value="1.10" required />
+          </div>
+
+          <div class="form-group">
+            <label>Cut Quality</label>
+            <select id="cut" required>
+              <option>Ideal</option>
+              <option>Very Good</option>
+              <option>Good</option>
+              <option>Fair</option>
+              <option>Signature-Ideal</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Color Grade</label>
+            <select id="color" required>
+              <option>D</option><option>E</option><option>F</option><option>G</option><option selected>H</option><option>I</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Clarity</label>
+            <select id="clarity" required>
+              <option>IF</option><option>VVS1</option><option>VVS2</option><option>VS1</option><option>VS2</option><option selected>SI1</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Polish</label>
+            <select id="polish" required>
+              <option>EX</option><option selected>VG</option><option>ID</option><option>G</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Symmetry</label>
+            <select id="symmetry" required>
+              <option selected>EX</option><option>VG</option><option>ID</option><option>G</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Certificate</label>
+            <select id="report" required>
+              <option selected>GIA</option>
+              <option>AGSL</option>
+            </select>
+          </div>
+
+          <div class="form-group api-group">
+            <label>API Base URL</label>
+            <input id="apiBase" type="url" value="http://127.0.0.1:8000" required />
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary" id="btnPredict">
+            <span id="btnText">Calculate Price</span>
+          </button>
+          <button type="button" class="btn-secondary" id="btnReset">Reset Form</button>
+          <span class="status-badge" id="status">Ready to predict</span>
+        </div>
+      </form>
+
+      <div class="results" id="resultBox" style="display:none;">
+        <div class="results-header">💰 Estimated Diamond Value</div>
+        <div class="price-display" id="priceText">$0.00</div>
+        
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Carat</span>
+            <span class="spec-value" id="specCarat">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Cut</span>
+            <span class="spec-value" id="specCut">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Color</span>
+            <span class="spec-value" id="specColor">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Clarity</span>
+            <span class="spec-value" id="specClarity">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Polish</span>
+            <span class="spec-value" id="specPolish">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Symmetry</span>
+            <span class="spec-value" id="specSymmetry">-</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Report</span>
+            <span class="spec-value" id="specReport">-</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>
+          💡 Tip: Ensure backend is running with <code>uvicorn backend.app:app --reload --port 8000</code>
+        </div>
+        <div class="footer-badge">
+          ⚡ Powered by FastAPI ML
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"feature_cols": ["Carat Weight", "log_carat", "carat_sq", "Cut", "Color", "Clarity", "Polish", "Symmetry", "Report"], "cat_cols": ["Cut", "Color", "Clarity", "Polish", "Symmetry", "Report"], "num_cols": ["Carat Weight"], "note": "Model trained on log1p(Price). Predictions require expm1()."}
